@@ -5,18 +5,32 @@
   <a href="https://www.npmjs.com/package/jira.js" target="_blank" rel="noopener noreferrer"><img alt="NPM downloads per month" src="https://img.shields.io/npm/dm/jira.js.svg?maxAge=3600&style=flat-square" /></a>
   <a href="https://github.com/MrRefactoring/jira.js" target="_blank" rel="noopener noreferrer"><img alt="build status" src="https://img.shields.io/github/actions/workflow/status/mrrefactoring/jira.js/.github/workflows/ci.yaml?branch=master&style=flat-square"></a>
   <a href="https://github.com/mrrefactoring/jira.js/blob/develop/LICENSE" target="_blank" rel="noopener noreferrer"><img alt="license" src="https://img.shields.io/github/license/mrrefactoring/jira.js?color=green&style=flat-square"/></a>
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer"><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-Ready-blue?style=flat-square&logo=typescript" /></a>
+  <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer"><img alt="Node.js" src="https://img.shields.io/badge/Node.js-20%2B-green?style=flat-square&logo=node.js" /></a>
 
   <span>JavaScript / TypeScript library for Node.js and browsers to interact with Atlassian Jira APIs</span>
 </div>
 
 ## About
 
-Jira.js is a powerful [Node.js](https://nodejs.org/) and browser-compatible module that provides seamless interaction with:
-- [Jira Cloud API](https://developer.atlassian.com/cloud/jira/platform/rest/)
-- [Jira Agile Cloud API](https://developer.atlassian.com/cloud/jira/software/rest/intro/)
-- [Jira ServiceDesk Cloud API](https://developer.atlassian.com/cloud/jira/service-desk/rest/intro/)
+**Jira.js** is a powerful, production-ready [Node.js](https://nodejs.org/) and browser-compatible TypeScript library that provides seamless interaction with Atlassian Jira Cloud APIs. This npm package offers comprehensive support for:
 
-Designed for usability, consistency, and performance, it covers nearly 100% of Jira APIs and stays updated with new features.
+- **[Jira Cloud REST API v2/v3](https://developer.atlassian.com/cloud/jira/platform/rest/)** - Complete platform API coverage
+- **[Jira Agile Cloud API](https://developer.atlassian.com/cloud/jira/software/rest/intro/)** - Sprint, board, and backlog management
+- **[Jira Service Desk Cloud API](https://developer.atlassian.com/cloud/jira/service-desk/rest/intro/)** - Service desk operations
+
+### Key Features
+
+- ✅ **Type-Safe**: Full TypeScript support with comprehensive type definitions and IntelliSense
+- ✅ **Tree-Shakable**: Optimize bundle size by importing only what you need (perfect for browser apps)
+- ✅ **Universal**: Works in Node.js (v20+) and modern browsers with full ESM/CJS support
+- ✅ **Complete Coverage**: Nearly 100% of Jira Cloud REST API v2/v3, Agile, and Service Desk APIs
+- ✅ **Well Documented**: Extensive JSDoc, API reference, and code examples
+- ✅ **Modern Stack**: Built with TypeScript, supports ES Modules and CommonJS
+- ✅ **Actively Maintained**: Regular updates with new Jira API features and bug fixes
+- ✅ **Production Ready**: Used by thousands of developers in production environments
+
+Perfect for building Jira integrations, automation tools, webhooks, CI/CD pipelines, custom Jira applications, and browser-based Jira management tools.
 
 ## Table of Contents
 
@@ -38,7 +52,7 @@ Designed for usability, consistency, and performance, it covers nearly 100% of J
 
 ### Installation
 
-**Requires Node.js 20.0.0 or newer.**
+Install the Jira.js npm package using your preferred package manager. **Requires Node.js 20.0.0 or newer.**
 
 ```bash
 # Using npm
@@ -51,9 +65,11 @@ yarn add jira.js
 pnpm add jira.js
 ```
 
+**TypeScript users**: Type definitions are included - no additional `@types` package needed!
+
 ### Quick Example
 
-Create your first Jira issue in under 5 minutes:
+Get started with Jira.js in under 5 minutes. This example shows how to create a Jira issue using the TypeScript client:
 
 ```typescript
 import { Version3Client } from 'jira.js';
@@ -87,8 +103,26 @@ createIssue();
 
 ## Documentation
 
-Full API reference and guides available at:
-[https://mrrefactoring.github.io/jira.js/](https://mrrefactoring.github.io/jira.js/)
+📚 **Full API reference, guides, and examples** available at:
+**[https://mrrefactoring.github.io/jira.js/](https://mrrefactoring.github.io/jira.js/)**
+
+The documentation includes:
+- Complete API reference for all endpoints
+- TypeScript examples and code samples
+- Authentication guides
+- Error handling patterns
+- Best practices and tips
+
+## Supported APIs
+
+Jira.js provides comprehensive support for all major Jira Cloud APIs:
+
+- **Jira Platform REST API v2**: Legacy API endpoints for projects, issues, users, and more
+- **Jira Platform REST API v3**: Modern API with enhanced features and improved performance
+- **Jira Software (Agile) API**: Sprint management, boards, backlogs, and agile workflows
+- **Jira Service Desk API**: Service desk operations, customer management, and request handling
+
+All APIs are fully typed with TypeScript definitions, making development faster and safer.
 
 ## Usage
 
@@ -178,6 +212,7 @@ const sprint = await client.sprint.createSprint({ name: 'Q4 Sprint' });
 <details>
   <summary>🔽 Core REST API (v2/v3)</summary>
 
+  - [api](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-other-operations/#api-group-other-operations)
   - [announcementBanner](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-announcement-banner/#api-group-announcement-banner)
   - [appDataPolicy](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-app-data-policies/#api-group-app-data-policies)
   - [applicationRoles](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-application-roles/#api-group-application-roles)
@@ -187,6 +222,7 @@ const sprint = await client.sprint.createSprint({ name: 'Q4 Sprint' });
   - [classificationLevels](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-classification-levels/#api-group-classification-levels)
   - [dashboards](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-dashboards/#api-group-dashboards)
   - [filters](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-filters/#api-group-filters)
+  - [fieldSchemes](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-field-schemes/#api-group-field-schemes)
   - [filterSharing](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-filter-sharing/#api-group-filter-sharing)
   - [groupAndUserPicker](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-group-and-user-picker/#api-group-group-and-user-picker)
   - [groups](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-groups/#api-group-groups)
@@ -210,6 +246,7 @@ const sprint = await client.sprint.createSprint({ name: 'Q4 Sprint' });
   - [issueNotificationSchemes](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-notification-schemes/#api-group-issue-notification-schemes)
   - [issuePriorities](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-priorities/#api-group-issue-priorities)
   - [issueProperties](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-properties/#api-group-issue-properties)
+  - [issueRedaction](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-redaction/#api-group-issue-redaction)
   - [issueRemoteLinks](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-remote-links/#api-group-issue-remote-links)
   - [issueResolutions](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-resolutions/#api-group-issue-resolutions)
   - [issueSearch](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-group-issue-search)
@@ -229,6 +266,7 @@ const sprint = await client.sprint.createSprint({ name: 'Q4 Sprint' });
   - [jqlFunctionsApps](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-jql-functions--apps-/#api-group-jql-functions--apps-)
   - [labels](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-labels/#api-group-labels)
   - [licenseMetrics](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-license-metrics/#api-group-license-metrics)
+  - [migrationOfConnectModulesToForge](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-migration-of-connect-modules-to-forge/#api-group-migration-of-connect-modules-to-forge)
   - [myself](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-myself/#api-group-myself)
   - [permissions](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-permissions/#api-group-permissions)
   - [permissionSchemes](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-permission-schemes/#api-group-permission-schemes)
@@ -292,9 +330,9 @@ const sprint = await client.sprint.createSprint({ name: 'Q4 Sprint' });
 
 See full group list in [original documentation](#usage).
 
-## Tree Shaking
+## Tree Shaking & Bundle Optimization
 
-Optimize bundle size by importing only needed modules:
+Jira.js supports tree shaking to minimize your bundle size. Import only the modules you need:
 
 ```typescript
 // custom-client.ts
@@ -312,13 +350,48 @@ const client = new CustomClient({ /* config */ });
 await client.issues.getIssue({ issueIdOrKey: 'KEY-1' });
 ```
 
+**Benefits:**
+- Smaller bundle sizes for browser applications
+- Faster load times
+- Better performance in production
+
+## Use Cases
+
+Jira.js is perfect for:
+
+- 🔄 **CI/CD Integration**: Automate issue creation and updates in your deployment pipelines
+- 🤖 **Automation Scripts**: Build custom automation for Jira workflows and processes
+- 📊 **Reporting & Analytics**: Extract and analyze Jira data for custom dashboards
+- 🔗 **Webhook Handlers**: Process Jira webhooks and integrate with external systems
+- 🛠️ **Custom Tools**: Build admin tools, migration scripts, and custom Jira applications
+- 📱 **Browser Apps**: Create browser-based Jira management interfaces
+- 🔌 **Third-Party Integrations**: Connect Jira with other services and platforms
+
+## Common Questions
+
+**Q: Does this work with Jira Server/Data Center?**  
+A: No, Jira.js is designed specifically for Jira Cloud. For on-premise Jira, consider using the REST API directly.
+
+**Q: Is TypeScript required?**  
+A: No, but TypeScript is fully supported with comprehensive type definitions. You can use Jira.js with plain JavaScript too.
+
+**Q: Can I use this in the browser?**  
+A: Yes! Jira.js works in both Node.js and modern browsers. Make sure to handle CORS if calling Jira APIs from a browser.
+
+**Q: How do I handle authentication?**  
+A: Jira.js supports Basic Auth (email + API token) and OAuth 2.0. See the [Authentication](#authentication) section above.
+
 ## Other Products
 
 Explore our other Atlassian integration libraries:
 - [Confluence.js](https://github.com/MrRefactoring/confluence.js) - Interact with Confluence API
 - [Trello.js](https://github.com/MrRefactoring/trello.js) - Trello API integration
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
 ## License
 
-MIT License © MrRefactoring
+MIT License © MrRefactoring  
 See [LICENSE](https://github.com/mrrefactoring/jira.js/blob/develop/LICENSE) for details.

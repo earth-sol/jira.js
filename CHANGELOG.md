@@ -1,5 +1,118 @@
 # Jira.js changelog
 
+## 5.3.0
+
+### General
+
+* Updated dependencies
+* Improved JSDoc coverage and quality
+* Refactored integration tests to use global setup/teardown for better performance and reliability
+* Wrapped all integration tests in describe blocks for better organization
+
+### Bug Fixes
+
+* **#410:** Fixed `getWorkflowSchemeProjectAssociations` to properly serialize multiple project IDs as separate query parameters (`projectId=10000&projectId=10001`) instead of comma-separated values. Thanks to [konrad-garus](https://github.com/konrad-garus) for reporting this issue.
+* **#411:** Added missing `url` field to `Webhook` model. Thanks to [vrmiguel](https://github.com/vrmiguel) for reporting this issue.
+
+### Version 2 Client
+
+#### New Endpoints
+
+* **Api**
+  * Added `Api` endpoints for bulk worklog operations
+* **FieldSchemes**
+  * Added `FieldSchemes` endpoints for field association scheme management
+* **IssueRedaction**
+  * Added `IssueRedaction` endpoints for issue field data redaction
+* **MigrationOfConnectModulesToForge**
+  * Added `MigrationOfConnectModulesToForge` endpoints for Connect to Forge migration
+* **AppProperties**
+  * Added `AppProperties.getForgeAppPropertyKeys`
+  * Added `AppProperties.getForgeAppProperty`
+* **IssueFields**
+  * Added `IssueFields.getProjectFields`
+* **ProjectTemplates**
+  * Added `ProjectTemplates.editTemplate`
+  * Added `ProjectTemplates.liveTemplate`
+  * Added `ProjectTemplates.removeTemplate`
+  * Added `ProjectTemplates.saveTemplate`
+* **Status**
+  * Added `Status.getStatusesByName`
+* **Workflows**
+  * Added `Workflows.readWorkflowFromHistory`
+  * Added `Workflows.listWorkflowHistory`
+  * Added `Workflows.getDefaultEditor`
+  * Added `Workflows.readWorkflowPreviews`
+* **WorkflowSchemes**
+  * Added `WorkflowSchemes.switchWorkflowSchemeForProject`
+
+#### Enhancements
+
+* **IssueComments**
+  * Added `parentId` parameter to `IssueComments.addComment` to support threaded comment replies. Thanks to [lukiffer](https://github.com/lukiffer) for requesting this feature ([#407](https://github.com/MrRefactoring/jira.js/issues/407)).
+
+#### Deprecations
+
+* Marked `JiraExpressions.evaluateJiraExpression` as deprecated
+* Marked `Workflows.createWorkflow` as deprecated
+* Marked `Workflows.getWorkflowsPaginated` as deprecated
+* Marked the following under `WorkflowTransitionProperties` as deprecated:
+  * `getWorkflowTransitionProperties`
+  * `createWorkflowTransitionProperty`
+  * `updateWorkflowTransitionProperty`
+  * `deleteWorkflowTransitionProperty`
+
+### Version 3 Client
+
+#### New Endpoints
+
+* **Api**
+  * Added `Api` endpoints
+* **FieldSchemes**
+  * Added `FieldSchemes` endpoints
+* **IssueRedaction**
+  * Added `IssueRedaction` endpoints
+* **MigrationOfConnectModulesToForge**
+  * Added `MigrationOfConnectModulesToForge` endpoints
+* **AppProperties**
+  * Added `AppProperties.getForgeAppPropertyKeys`
+  * Added `AppProperties.getForgeAppProperty`
+* **IssueFields**
+  * Added `IssueFields.getProjectFields`
+* **Issues**
+  * Added `appType` param to `Issues.assignIssue`
+* **ProjectTemplates**
+  * Added `ProjectTemplates.editTemplate`
+  * Added `ProjectTemplates.liveTemplate`
+  * Added `ProjectTemplates.removeTemplate`
+  * Added `ProjectTemplates.saveTemplate`
+* **Status**
+  * Added `Status.getStatusesByName`
+  * Migrated `Status.search` endpoint to use zod-based response schemas (PoC) and added integration tests
+* **Workflows**
+  * Added `Workflows.readWorkflowFromHistory`
+  * Added `Workflows.listWorkflowHistory`
+  * Added `Workflows.getDefaultEditor`
+  * Added `Workflows.readWorkflowPreviews`
+* **WorkflowSchemes**
+  * Added `WorkflowSchemes.switchWorkflowSchemeForProject`
+
+#### Enhancements
+
+* **IssueComments**
+  * Added `parentId` parameter to `IssueComments.addComment` to support threaded comment replies. Thanks to [lukiffer](https://github.com/lukiffer) for requesting this feature ([#407](https://github.com/MrRefactoring/jira.js/issues/407)).
+
+#### Deprecations
+
+* Marked `JiraExpressions.evaluateJiraExpression` as deprecated
+* Marked `Workflows.createWorkflow` as deprecated
+* Marked `Workflows.getWorkflowsPaginated` as deprecated
+* Marked the following under `WorkflowTransitionProperties` as deprecated:
+  * `getWorkflowTransitionProperties`
+  * `createWorkflowTransitionProperty`
+  * `updateWorkflowTransitionProperty`
+  * `deleteWorkflowTransitionProperty`
+
 ## 5.2.2
 - Fixed url for `version2.issues.bulkFetchIssues`. Thanks @genio, for reporting.
 
